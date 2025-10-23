@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration Form</title>
+
+    <style>
+      /* Global Styles and Reset */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      /* Form Container (The main white card) */
+      .form-container {
+        background-color: white;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      /* Header and Instructions */
+      .event-registration-form h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .event-registration-form > p:first-of-type {
+        color: #666;
+        margin-bottom: 25px;
+      }
+
+      /* Grouping for Inputs (Label + Input) */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+        font-size: 14px;
+      }
+
+      /* Styling for all text inputs and select */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      }
+
+      /* Select specific styling for dropdown arrow */
+      .form-group select {
+        appearance: none;
+        background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.7-6.7H19.4c-6.1%200-12.1%203.4-14.8%209s-.9%2012.8%203.2%2017.7l124%20140c4%204.6%2011%207%2018%207s14-2.4%2018-7l124-140c4-5%205-11%203.2-17.7z%22%2F%3E%3C%2Fsvg%3E")
+          no-repeat right 15px center;
+        background-size: 10px;
+      }
+
+      /* Input Group for two side-by-side fields (First Name/Last Name, Country/DOB) */
+      .input-pair {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .input-pair .form-group {
+        flex: 1; /* Makes both groups take equal space */
+        margin-bottom: 0;
+      }
+
+      /* Section Heading for Emergency Contact */
+      .section-heading {
+        font-size: 18px;
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      /* T-Shirt Size Checkbox Group */
+      .tshirt-group {
+        margin-bottom: 25px;
+      }
+
+      .tshirt-group > label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .tshirt-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 30px; /* Vertical and horizontal gap */
+      }
+
+      .tshirt-options label {
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      /* Checkbox styling (similar to the previous form) */
+      .tshirt-options input[type="checkbox"],
+      .agreement-group input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-right: 8px;
+        cursor: pointer;
+        position: relative;
+        outline: none;
+        flex-shrink: 0; /* Prevent checkbox from shrinking */
+      }
+
+      .tshirt-options input[type="checkbox"]:checked::after,
+      .agreement-group input[type="checkbox"]:checked::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid #000;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+
+      /* Terms Agreement Checkbox */
+      .agreement-group {
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+
+      .agreement-group label {
+        font-size: 14px;
+        color: #666;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      /* Submit Button Styling */
+      .register-button {
+        width: 100%;
+        padding: 15px;
+        background-color: #007bff; /* Blue color for the button */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-weight: bold;
+      }
+
+      .register-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <form class="event-registration-form">
+        <h1>FORMULIR PENDAFTARAN EVENT</h1>
+        <p>silahkan isi data di bawah untuk daftar.</p>
+
+        <div class="input-pair">
+          <div class="form-group">
+            <label for="first-name">Nama Depan</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="Rifaldi"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Nama Belakang</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              placeholder="Hidayat "
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email-address">Alamat email</label>
+          <input
+            type="email"
+            id="email-address"
+            name="email-address"
+            placeholder="email-address@example.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone-number">NO HP</label>
+          <input
+            type="tel"
+            id="phone-number"
+            name="phone-number"
+            placeholder="+62 81 2345 6789"
+            required
+          />
+        </div>
+
+        <div class="input-pair">
+          <div class="form-group">
+            <label for="country">Negara</label>
+            <select id="country" name="country" required>
+              <option value="" disabled selected>Select Country</option>
+              <option value="ID">Indonesia</option>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dob">Tanggal Lahir</label>
+            <input
+              type="text"
+              id="dob"
+              name="dob"
+              placeholder="MM/DD/YYYY"
+              onfocus="(this.type='date')"
+              onblur="(this.type='text')"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="tshirt-group">
+          <label>Ukuran Baju</label>
+          <div class="tshirt-options">
+            <label>
+              <input type="checkbox" name="tshirt-size" value="small" /> S
+            </label>
+            <label>
+              <input type="checkbox" name="tshirt-size" value="medium" /> M
+            </label>
+            <label>
+              <input type="checkbox" name="tshirt-size" value="large" /> L
+            </label>
+            <label>
+              <input type="checkbox" name="tshirt-size" value="extra-large" />
+              XL
+            </label>
+          </div>
+        </div>
+
+        <h2 class="section-heading">Kontak darurat</h2>
+
+        <div class="form-group">
+          <label for="emergency-name">Nama Kontak darurat</label>
+          <input
+            type="text"
+            id="emergency-name"
+            name="emergency-name"
+            placeholder="Nama kontak"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="emergency-phone">NO Kontak darurat</label>
+          <input
+            type="tel"
+            id="emergency-phone"
+            name="emergency-phone"
+            placeholder="+1 (555) 123-4567"
+            required
+          />
+        </div>
+
+        <div class="agreement-group">
+          <label>
+            <input
+              type="checkbox"
+              id="terms-agreement"
+              name="terms-agreement"
+              required
+            />
+            Saya setuju dengan syarat dan ketentuan yang berlaku.
+          </label>
+        </div>
+
+        <button type="submit" class="register-button">DAFTAR</button>
+      </form>
+    </div>
+  </body>
+</html>
