@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulir Pendaftaran Anggota Rifaldi Hidayat</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #cacaca;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .form-container {
+        background-color: white;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .membership-form h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .membership-form > p:first-of-type {
+        color: #666;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      .section-label {
+        display: block;
+        font-weight: bold;
+        color: #333;
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+      }
+
+      .section-heading {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .input-pair {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .input-pair .form-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+
+      select {
+        appearance: none;
+      }
+
+      .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      .radio-group label {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 8px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+
+      .checkbox-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px 20px;
+        margin-bottom: 20px;
+      }
+
+      .checkbox-grid label {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .agreement-group {
+        margin-top: 15px;
+        margin-bottom: 25px;
+      }
+
+      .agreement-group label {
+        font-size: 14px;
+        color: #666;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 14px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .submit-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <div class="membership-form">
+        <h1>Formulir Pendaftaran Anggota</h1>
+        <p>
+          Silakan isi formulir di bawah ini untuk mendaftar sebagai anggota.
+        </p>
+
+        <form method="post" action="">
+          <div class="input-pair">
+            <div class="form-group">
+              <label for="first-name" class="section-label">Nama Depan</label>
+              <input
+                type="text"
+                id="first-name"
+                name="first-name"
+                placeholder="Rifaldi"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="last-name" class="section-label">Nama Belakang</label>
+              <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                placeholder="Hidayat"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-pair">
+            <div class="form-group">
+              <label for="email-address" class="section-label"
+                >Alamat Email</label
+              >
+              <input
+                type="email"
+                id="email-address"
+                name="email-address"
+                placeholder="EMAIL MU"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone-number" class="section-label"
+                >Nomor Telepon</label
+              >
+              <input
+                type="tel"
+                id="phone-number"
+                name="phone-number"
+                placeholder="NOMOR TELEPON MU"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address" class="section-label">Alamat</label>
+            <textarea
+              id="address"
+              name="address"
+              placeholder="ALAMAT MU"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="address-2" class="section-label">Alamat 2</label>
+            <textarea
+              id="address-2"
+              name="address-2"
+              placeholder="ALAMAT 2 MU"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="country" class="section-label">Negara</label>
+            <select id="country" name="country">
+              <option value="">PILIH NEGARA</option>
+              <option value="indonesia">Indonesia</option>
+              <option value="malaysia">Malaysia</option>
+              <option value="singapore">Singapore</option>
+              <option value="thailand">Thailand</option>
+              <option value="vietnam">Vietnam</option>
+            </select>
+          </div>
+
+          <label class="section-label">Tipe Member</label>
+          <div class="radio-group">
+            <label
+              ><input type="radio" name="membership-type" value="basic" />
+              Basic</label
+            >
+            <label
+              ><input type="radio" name="membership-type" value="premium" />
+              Premium</label
+            >
+            <label
+              ><input type="radio" name="membership-type" value="elite" />
+              Elite</label
+            >
+          </div>
+
+          <label class="section-label">Interests</label>
+          <h2 class="section-heading">Pilih minat Anda</h2>
+          <div class="checkbox-grid">
+            <label
+              ><input type="checkbox" name="interests[]" value="sports" />
+              Olahraga</label
+            >
+            <label
+              ><input type="checkbox" name="interests[]" value="music" />
+              Musik</label
+            >
+            <label
+              ><input type="checkbox" name="interests[]" value="travel" />
+              Perjalanan</label
+            >
+            <label
+              ><input type="checkbox" name="interests[]" value="technology" />
+              Teknologi</label
+            >
+            <label
+              ><input type="checkbox" name="interests[]" value="art" />
+              Seni</label
+            >
+            <label
+              ><input type="checkbox" name="interests[]" value="cooking" />
+              Memasak</label
+            >
+          </div>
+
+          <label class="section-label" for="why-join"
+            >Mengapa kamu ingin bergabung?</label
+          >
+          <div class="form-group">
+            <textarea
+              id="why-join"
+              name="why-join"
+              placeholder="Ceritakan alasannya..."
+            ></textarea>
+          </div>
+
+          <div class="agreement-group">
+            <label>
+              <input
+                type="checkbox"
+                id="terms-agreement"
+                name="terms-agreement"
+                required
+              />
+              Saya setuju dengan syarat dan ketentuan yang berlaku.
+            </label>
+          </div>
+
+          <button type="submit" class="submit-button">Daftar Sekarang</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
