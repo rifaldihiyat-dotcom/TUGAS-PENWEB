@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemesanan Rifaldi Hidayat</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .form-container {
+        background-color: #fff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      h1 {
+        font-size: 22px;
+        text-align: left;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+
+      .input-pair {
+        display: flex;
+        gap: 15px;
+      }
+
+      .input-pair .form-group {
+        flex: 1;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .section-heading {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+
+      .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px 10px;
+        margin-bottom: 15px;
+      }
+
+      .checkbox-group label {
+        font-weight: normal;
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: center;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 8px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+
+      .agreement {
+        display: flex;
+        align-items: flex-start;
+        font-size: 14px;
+        color: #555;
+        margin: 15px 0;
+      }
+
+      .agreement input {
+        margin-right: 10px;
+        margin-top: 2px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Form Pemesanan Rifaldi Hidayat</h1>
+      <form action="" method="post">
+        <label for="name">Nama Lengkap</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Rifaldi Hidayat"
+        />
+
+        <div class="input-pair">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@penweb.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Nomor Telepon</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+62 812-3456-7890"
+              required
+            />
+          </div>
+        </div>
+
+        <h2 class="section-heading">Detail Pemesanan</h2>
+        <div class="input-pair">
+          <div class="form-group">
+            <label for="product">Produk</label>
+            <select id="product" name="product" required>
+              <option value="" disabled selected>Pilih Produk</option>
+              <option value="baju">baju</option>
+              <option value="hoodie">hoodie</option>
+              <option value="kemeja">kemeja</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Jumlah</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              placeholder="1"
+              required
+            />
+          </div>
+        </div>
+
+        <label>size</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="size" value="S" />S</label>
+          <label><input type="checkbox" name="size" value="M" />M</label>
+          <label><input type="checkbox" name="size" value="L" />L</label>
+          <label><input type="checkbox" name="size" value="XL" />XL </label>
+        </div>
+
+        <label for="section-heading">komentar tambahan</label>
+        <textarea
+          id="comments"
+          name="comments"
+          placeholder="Tulis komentar tambahan di sini..."
+        ></textarea>
+
+        <h2 class="section-heading">metode pembayaran</h2>
+        <label for="payment">Pilih Metode Pembayaran</label>
+        <select id="payment" name="payment" required>
+          <option value="" disabled selected>Pilih Metode Pembayaran</option>
+          <option value="credit_card">Kartu Kredit</option>
+          <option value="bank_transfer">Transfer Bank</option>
+          <option value="e_wallet">E-Wallet</option>
+        </select>
+
+        <div class="agreement">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms"
+            >Saya setuju dengan syarat dan ketentuan yang berlaku.</label
+          >
+        </div>
+
+        <button type="submit">Kirim Pesanan</button>
+      </form>
+    </div>
+  </body>
+</html>
