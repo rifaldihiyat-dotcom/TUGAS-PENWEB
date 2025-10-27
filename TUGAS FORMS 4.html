@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>formulir Relawan Rifaldi Hidayat</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .form-container {
+        background-color: #fff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 24px;
+        color: #222;
+        margin-bottom: 5px;
+      }
+
+      p.description {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 25px;
+      }
+
+      label {
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      input[type="time"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .input-pair {
+        display: flex;
+        gap: 15px;
+      }
+
+      .input-pair .form-group {
+        flex: 1;
+      }
+
+      .section-heading {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+
+      .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px 15px;
+        margin-bottom: 15px;
+      }
+
+      .checkbox-group label,
+      .days-available label {
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .days-available {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px 10px;
+        margin-bottom: 15px;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 8px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        margin-right: 8px;
+      }
+
+      .time-pair {
+        display: flex;
+        gap: 15px;
+      }
+
+      .agreement {
+        display: flex;
+        align-items: flex-start;
+        font-size: 14px;
+        color: #555;
+        margin: 15px 0;
+      }
+
+      .agreement input {
+        margin-right: 10px;
+        margin-top: 2px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>formulir Relawan</h1>
+      <p class="description">
+        Silakan isi formulir di bawah untuk mendaftar sebagai relawan.
+      </p>
+
+      <form action="" method="post">
+        <div class="input-pair">
+          <div class="form-group">
+            <label for="first-name">Nama Depan</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="Rifaldi "
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Nama Belakang</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              placeholder="Hidayat"
+              required
+            />
+          </div>
+        </div>
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Masukkan email Anda"
+          required
+        />
+
+        <label for="phone">Nomor Telepon</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Masukkan nomor telepon Anda"
+          required
+        />
+
+        <label for="dob">Tanggal Lahir</label>
+        <input type="date" id="dob" name="dob" required />
+
+        <label for="skills">Peran Relawan yang Diutamakan</label>
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Pilih peran relawan</option>
+          <option value="event-assistant">Asisten Acara</option>
+          <option value="fundraiser">Penggalang Dana</option>
+          <option value="social-media-coordinator">
+            Koordinator Media Sosial
+          </option>
+          <option value="community-outreach">Penjangkauan Komunitas</option>
+          <option value="logistics-support">Dukungan Logistik</option>
+        </select>
+
+        <h2 class="section-heading">waktu ketersedian</h2>
+        <label>Hari Tersedia</label>
+        <div class="days-available">
+          <label
+            ><input type="checkbox" name="days" value="monday" />Senin</label
+          >
+          <label
+            ><input type="checkbox" name="days" value="tuesday" />Selasa</label
+          >
+          <label
+            ><input type="checkbox" name="days" value="wednesday" />Rabu</label
+          >
+          <label
+            ><input type="checkbox" name="days" value="thursday" />Kamis</label
+          >
+          <label
+            ><input type="checkbox" name="days" value="friday" />Jumat</label
+          >
+        </div>
+
+        <div class="time-pair">
+          <div class="form-group">
+            <label for="start-time">Waktu Mulai</label>
+            <input type="time" id="start-time" name="start-time" required />
+          </div>
+          <div class="form-group">
+            <label for="end-time">Waktu Selesai</label>
+            <input type="time" id="end-time" name="end-time" required />
+          </div>
+        </div>
+
+        <h2 class="section-heading">Keahlian dan Minat</h2>
+        <label for="skills">Keahlian dan Pengalaman</label>
+        <textarea
+          id="skills"
+          name="skills"
+          placeholder="Masukkan keahlian dan pengalaman Anda..."
+        ></textarea>
+
+        <label>Minat</label>
+        <div class="checkbox-group">
+          <label
+            ><input
+              type="checkbox"
+              name="interests"
+              value="teaching"
+            />Mengajar</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="interests"
+              value="fundraising"
+            />Penggalangan Dana</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="interests"
+              value="event-planning"
+            />Perencanaan Acara</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="interests"
+              value="social-media"
+            />Media Sosial</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="interests"
+              value="community-outreach"
+            />Penjangkauan Komunitas</label
+          >
+        </div>
+
+        <div class="agreement">
+          <input type="checkbox" id="agree" name="agree" required />
+          <label for="agree"
+            >Saya menyetujui syarat dan ketentuan sebagai relawan.</label
+          >
+        </div>
+
+        <button type="submit">Kirim Pendaftaran</button>
+      </form>
+    </div>
+  </body>
+</html>
