@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 - To-Do List (+Checkbox)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 350px;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 { text-align: center; color: #2c3e50; margin-top: 0; }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            width: 48%;
+        }
+
+        .btn-add { background-color: #27ae60; }
+        .btn-add:hover { background-color: #2ecc71; }
+
+        .btn-del { background-color: #c0392b; }
+        .btn-del:hover { background-color: #e74c3c; }
+
+        ul { padding: 0; margin: 0; list-style-type: none; }
+
+        li {
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center; /* Supaya checkbox dan teks sejajar vertikal */
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        /* Styling untuk Checkbox */
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2); /* Memperbesar ukuran checkbox sedikit */
+            cursor: pointer;
+        }
+
+        /* Class untuk efek coret (akan ditambahkan lewat JS) */
+        .selesai {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>To-Do List Checkbox</h2>
+        
+        <div class="input-group">
+            <input type="text" id="input-tugas" placeholder="Tugas baru...">
+        </div>
+
+        <div class="btn-group">
+            <button onclick="tambahTugas()" class="btn-add">Tambah</button>
+            <button onclick="hapusTerakhir()" class="btn-del">Hapus Terakhir</button>
+        </div>
+
+        <ul id="list-tugas"></ul>
+    </div>
+
+    <script>
+        function tambahTugas() {
+            const inputField = document.getElementById("input-tugas");
+            const isiTugas = inputField.value;
+
+            if (isiTugas === "") {
+                alert("Isi dulu tugasnya!");
+                return;
+            }
+
+            // elemen li
+            const elemenLi = document.createElement("li");
+
+            // checkbox
+            const elemenCheckbox = document.createElement("input");
+            elemenCheckbox.setAttribute("type", "checkbox"); 
+
+            // teks di coret saat checkbox dicentang
+            elemenCheckbox.onclick = function() {
+                if (elemenCheckbox.checked) {
+                    elemenLi.classList.add("selesai"); 
+                } else {
+                    elemenLi.classList.remove("selesai"); 
+                }
+            };
+
+            // nodetext
+            //penggunaan createTextNode
+            const elemenTeks = document.createTextNode(isiTugas);
+
+            // susun checkbox dan teks di dalam <li>
+            elemenLi.appendChild(elemenCheckbox); 
+            elemenLi.appendChild(elemenTeks);     
+
+            // tampilkan di dalam <ul>
+            const parentList = document.getElementById("list-tugas");
+            parentList.appendChild(elemenLi);
+
+            inputField.value = "";
+        }
+
+        function hapusTerakhir() {
+            const parentList = document.getElementById("list-tugas");
+            if (parentList.lastElementChild) {
+                parentList.removeChild(parentList.lastElementChild);
+            } else {
+                alert("List kosong!");
+            }
+        }
+    </script>
+</body>
+</html>

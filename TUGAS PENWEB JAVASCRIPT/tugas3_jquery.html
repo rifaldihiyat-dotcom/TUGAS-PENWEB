@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 3 - FAQ Interaktif (jQuery)</title>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Gaya untuk setiap item FAQ */
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* PERTANYAAN*/
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #444;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /*IKON PANAH*/
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: #999;
+        }
+
+        /* JAWABAN */
+        .faq-answer {
+            display: none; 
+            padding: 15px 20px;
+            background-color: #fafafa;
+            color: #666;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AYO BELAJAR HTML "DOM & jQuery"</h1>
+
+    <div class="faq-item">
+        <div class="faq-question">1. Apa Itu jQuery?</div>
+        <div class="faq-answer">
+            jQuery adalah pustaka JavaScript yang cepat, kecil, dan kaya fitur. Ini membuat manipulasi dokumen HTML, penanganan event, dan animasi menjadi jauh lebih sederhana.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">2. Apa itu DOM ?</div>
+        <div class="faq-answer">
+            DOM (Document Object Model) adalah jembatan antara kode JavaScript dan tampilan HTML. Tanpa DOM, website kita akan statis dan tidak bisa berinteraksi dengan user.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">3. Apakah jQuery masih relevan di 2025?</div>
+        <div class="faq-answer">
+            Meskipun framework modern seperti React populer, jQuery masih digunakan di jutaan website lama (legacy) dan sangat bagus untuk pemula memahami konsep manipulasi elemen dengan mudah.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">4. Bagaimana cara menyembunyikan elemen di jQuery?</div>
+        <div class="faq-answer">
+            Kita bisa menggunakan method .hide(), .fadeOut(), atau .slideUp(). Untuk memunculkan kembali, gunakan kebalikannya atau .toggle().
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">5. Apa bedanya ID dan Class?</div>
+        <div class="faq-answer">
+            ID (#) bersifat unik dan hanya boleh ada satu dalam satu halaman. Class (.) bisa digunakan berulang kali pada banyak elemen sekaligus.
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+
+            // 1. EVENT CLICK
+            $(".faq-question").click(function(){
+                
+                // .next() memilih elemen tepat setelah pertanyaan (yaitu jawabannya)
+                // .toggle() menyembunyikan jika terlihat, menampilkan jika tersembunyi
+                $(this).next(".faq-answer").toggle();
+            
+            });
+
+            // 2. fungsi HOVER
+            $(".faq-question").hover(
+                
+                // mouse masuk (Hover In)
+                function() {
+                    $(this).css("color", "blue"); 
+                    $(this).css("background-color", "#eef7ff"); 
+                },
+                
+                // mause keluar (Hover Out)
+                function() {
+                    $(this).css("color", "#444"); 
+                    $(this).css("background-color", "white"); 
+                }
+            );
+
+        });
+    </script>
+</body>
+</html>

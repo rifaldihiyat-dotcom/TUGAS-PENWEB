@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Method Chaining</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #notification-box {
+            display: none; 
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="triggerbutton">Tampilkan notifikasi</button>
+    <div id="notification-box">
+        HALOO DUNIA!
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#triggerbutton").click(function(){
+                $("#notification-box")
+                .css("background-color", "#85FF40")
+                .fadeIn(1000)
+                .delay(3000)
+                .fadeOut(1000)
+                .slideDown(1000)
+                .slideUp(1000)
+                .fadeOut(1000);
+            });
+            });
+    </script>
+</body>
+</body>
+</html>
